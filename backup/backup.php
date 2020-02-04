@@ -17,7 +17,7 @@
     $list = $list_request->getList();
 
     // output list for backup
-    $dir = 'data/';
+    $dir = '/data/';
     if (!is_dir($dir)) mkdir($dir, 0700, TRUE);
     file_put_contents($dir . $date . '.opml.gz', gzencode(
         $list->getOPML()
