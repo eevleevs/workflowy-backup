@@ -8,3 +8,4 @@ COPY backup.php crontab ./
 COPY --from=git /workflowy-php ./workflowy-php
 RUN crontab crontab
 RUN rm crontab
+ENTRYPOINT ["sh"]
