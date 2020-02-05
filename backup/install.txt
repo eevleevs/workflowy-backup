@@ -1,0 +1,5 @@
+docker build -t workflowy_backup .
+docker run -d --restart unless-stopped --name workflowy_backup workflowy_backup
+docker exec -it workflowy_backup sh
+nano credentials.php
+exit

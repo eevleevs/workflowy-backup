@@ -1,13 +1,13 @@
-FROM alpine AS git
+FROM alpine AS get_workflowy-php
 RUN apk add git
 RUN git clone https://github.com/johansatge/workflowy-php.git
 
 FROM php:alpine
+RUN apk add nano
 WORKDIR /app
-COPY backup.php crontab ./
-COPY --from=git /workflowy-php ./workflowy-php
+VOLUME /app/data
+COPY backup.php credentials.php crontab ./
+COPY --from=get_workflowy-php /workflowy-php ./workflowy-php
 RUN crontab crontab
 RUN rm crontab
-VOLUME /data
-WORKDIR /data
 ENTRYPOINT ["crond", "-f"]
