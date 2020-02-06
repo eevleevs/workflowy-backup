@@ -8,7 +8,7 @@
     use WorkFlowyPHP\WorkFlowyList;
     use WorkFlowyPHP\WorkFlowyException;
 
-    $date = date('Ymd');
+    $date = date('Y-m-d');
 
     // login - ADD PASSWORD
     $session_id = WorkFlowy::login($username, $password);
