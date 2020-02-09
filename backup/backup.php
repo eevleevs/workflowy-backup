@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
     require_once 'workflowy-php/src/autoload.php';
-    require 'credentials.php';
+    require '/run/secrets/workflowy_credentials_1';
     error_reporting(E_ALL & ~E_NOTICE);
 
     use WorkFlowyPHP\WorkFlowy;

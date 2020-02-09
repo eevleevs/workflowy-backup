@@ -1,10 +1,10 @@
 FROM php:alpine
-RUN apk add nano
 RUN apk add git
+RUN apk add nano
 WORKDIR /app
-VOLUME /app/data
+VOLUME /data/data
 RUN git clone https://github.com/johansatge/workflowy-php.git
-COPY backup.php credentials.php crontab ./
+COPY backup.php crontab ./
 RUN crontab crontab
 RUN rm crontab
-ENTRYPOINT ["crond", "-f"]
+CMD ["crond", "-f"]
