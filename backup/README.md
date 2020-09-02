@@ -1,3 +1,4 @@
+# Installing
 - edit credentials.php
 - docker secret create workflowy_credentials_1
 - restore credentials.php
