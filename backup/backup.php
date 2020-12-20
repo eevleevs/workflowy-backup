@@ -1,7 +1,6 @@
 #!/usr/bin/env php
 <?php
     require_once 'workflowy-php/src/autoload.php';
-    require '/run/secrets/workflowy_credentials_1';
     error_reporting(E_ALL & ~E_NOTICE);
 
     use WorkFlowyPHP\WorkFlowy;
@@ -11,7 +10,7 @@
     $date = date('Y-m-d');
 
     // login - ADD PASSWORD
-    $session_id = WorkFlowy::login($username, $password);
+    $session_id = WorkFlowy::login($_ENV['USERNAME'], $_ENV['PASSWORD']);
 
     // get list
     $list_request = new WorkFlowyList($session_id);
